@@ -13,9 +13,12 @@ pipeline {
 
 
    stage('Release'){
-         steps {
+       when {
+       expression { env.TAG_NAME ==~ ".*"}
+       }
+       steps {
            echo 'CI'
-         }
+       }
    }
  }
 
